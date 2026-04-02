@@ -1,4 +1,4 @@
-name: Taski CI/CD
+name: Main Taski Workflow
 
 on:
   push:
@@ -49,8 +49,6 @@ jobs:
           if [ -f "nginx/Dockerfile" ]; then
             docker build -t ${{ secrets.DOCKER_USERNAME }}/taski-nginx:latest ./nginx
             echo "✅ Nginx image built"
-          else
-            echo "⚠️ nginx/Dockerfile not found"
           fi
 
       - name: Push backend to Docker Hub
