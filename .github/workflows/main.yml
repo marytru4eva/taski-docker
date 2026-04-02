@@ -37,13 +37,3 @@ jobs:
         run: |
           docker build -t taski-backend ./backend
           echo "✅ Docker image built successfully"
-
-  # Задача для отправки на Docker Hub (будет позже)
-  push-to-docker-hub:
-    needs: tests
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - uses: actions/checkout@v4
-      - name: Show success message
-        run: echo "✅ All tests passed! Ready to deploy"
